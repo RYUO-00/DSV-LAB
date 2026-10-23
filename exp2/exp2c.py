@@ -43,3 +43,33 @@ ax.yaxis.grid()
 plt.ylabel('Daily total sales in $')
 plt.title('Restaurant performance')
 plt.show()
+
+
+__________________________________
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+
+bills = sns.load_dataset('tips')
+
+days = ['Thur', 'Fri', 'Sat', 'Sun']
+
+smoker = bills[bills['smoker'] == 'Yes'].groupby('day')['total_bill'].sum()
+nonsmoker = bills[bills['smoker'] == 'No'].groupby('day')['total_bill'].sum()
+
+s = smoker.reindex(days, fill_value=0)
+ns = nonsmoker.reindex(days, fill_value=0)
+
+x = np.arange(len(days))
+
+plt.bar(x, s, label='Smoker')
+plt.bar(x, ns, bottom=s, label='Non-Smoker')
+
+plt.xticks(x, days)
+plt.ylabel('Daily total sales in $')
+plt.title('Restaurant performance')
+plt.legend()
+plt.grid(axis='y')
+
+plt.show()
