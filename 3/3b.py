@@ -7,17 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # ---------- Load data ----------
-if os.path.exists('ange-data.csv'):
-    data = pd.read_csv('ange-data.csv')
-else:
-    print("ange-data.csv not found, using dummy data")
-    rng = np.random.default_rng(0)
-    n = 200
-    mass_dummy = np.exp(rng.normal(4, 1.5, n))                  # body mass in grams
-    long_dummy = 5 + 0.5 * np.log(mass_dummy) + rng.normal(0, 3, n)
-    data = pd.DataFrame({'Class': 'Aves',
-                         'Maximum longevity (yrs)': long_dummy,
-                         'Body mass (g)': mass_dummy})
+data = pd.read_csv('ange-data.csv')
 
 # ---------- Preprocessing ----------
 longevity = 'Maximum longevity (yrs)'
