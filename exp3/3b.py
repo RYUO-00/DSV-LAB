@@ -5,12 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-data = pd.read_csv('C:\\Users\\ADMIN\\Desktop\\dsv_programs\\anage_data.csv') if os.path.exists('C:\\Users\\ADMIN\\Desktop\\dsv_programs\\anage_data.csv') else pd.DataFrame({
-    'Class': ['Aves', 'Aves', 'Mammalia', 'Mammalia', 'Reptilia', 'Reptilia'],
-    'Body mass (g)': [100, 200, 5000, 10000, 300, 400],
-    'Maximum longevity (yrs)': [5, 10, 15, 20, 8, 12]
-})
-
+data = pd.read_csv('C:\\Users\\ADMIN\\Desktop\\dsv_programs\\anage_data.csv') 
 
 data = data.dropna(subset=['Maximum longevity (yrs)', 'Body mass (g)'])
 birds = data[ (data['Class'] == 'Aves') & (data['Body mass (g)'] < 20000) ]
