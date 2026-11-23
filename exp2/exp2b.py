@@ -5,17 +5,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# ---- Load dataset ----
-# (If the CSV is missing, sample data is created so the program still runs)
-if not os.path.exists('moviescores.csv'):
-    sample = pd.DataFrame({
-        'Movie Title': ['The Shape of Water', 'Black Panther', 'Dunkirk',
-                        'The Martian', 'The Hobbit: An Unexpected Journey'],
-        'Tomatometer': [91, 97, 92, 91, 65],
-        'AudienceScore': [73, 79, 81, 91, 83],
-    })
-    sample.to_csv('moviescores.csv', index=False)
-
 movie_scores = pd.read_csv('moviescores.csv')
 
 # ---- Create figure ----
